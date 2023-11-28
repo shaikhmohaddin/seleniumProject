@@ -1,0 +1,33 @@
+package excelsheet;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Iterator;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class practice {
+public static void main(String[] args) throws EncryptedDocumentException, IOException {
+	FileInputStream f= new FileInputStream("../NewjavaProject/Worksheet.xlsx");
+     Sheet data = WorkbookFactory.create(f).getSheet("Sheet1");
+     int ss = data.getLastRowNum();
+    for (int i = 0; i < ss; i++) {
+		Cell ss1 = data.getRow(i).getCell(0);
+		Cell ss2 = data.getRow(i).getCell(1);
+		Cell ss3 = data.getRow(1).getCell(2);
+		if (i==1){
+			System.out.println(ss1 +"   "+ss2+"  "+ss3);
+		} else {
+			System.out.println(ss1 +"   "+ss2);
+		}
+		}
+		
+	}
+	
+}
+
